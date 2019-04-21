@@ -1,0 +1,100 @@
+--  NodPlot v1.0 : Scientific Plotting Software for 3D Structured Meshes
+--  Copyright (c) 1998 by Bernard Parent, parent@moebius.utias.toronto.edu
+--
+--  This program is free software; you can redistribute it and/or modify
+--  it under the terms of the GNU General Public License as published by
+--  the Free Software Foundation; either version 2 of the License, or
+--  (at your option) any later version.
+--
+--  This program is distributed in the hope that it will be useful,
+--  but WITHOUT ANY WARRANTY; without even the implied warranty of
+--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+--  GNU General Public License for more details.
+--
+--  You should have received a copy of the GNU General Public License
+--  along with this program; if not, write to the Free Software
+--  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+--
+-- (See the included file LICENSE)
+-- 
+
+
+NodPlot was developped to ease the task of visualizing rapidly
+properties in 3D structured meshes for Computational Fluid Dyn-
+amics (CFD) research. The mesh must be 3D or more explicitly:
+3 dimensions in space or 2 in space and 1 in time. 2D meshes can 
+be visualized simply by repeating twice the 2D data in the input
+file.
+
+The visualization is performed on a node basis, rather than a
+spatial and/or temporal basis, easing the task of visualizing
+complex spatial geometries in 3D.
+
+The author can be reached by email for bug reports, comments or
+code improvement suggestions at parent@moebius.utias.toronto.edu.  
+
+NodPlot was written with the cross-platform Qt libraries, which
+can be obtained from http://www.troll.no. You need version 1.40
+or higher.
+
+Bernard Parent, August 1998
+
+-->
+CONSULT THE "INSTALL" FILE FOR INSTALLATION AND TEST RUN INSTRUCTIONS
+-->
+
+==========================================================================
+NOTES:
+--------------------------------------------------------------------------
+1. If you need to change the fonts used in nodplot because they appear too small
+   or too big, edit the file fonts2.h and then recompile the code
+   with 'make clean' and then 'make'. Then reinstall it with './Install'.
+   Not that this version of NodPlot does not permit the user to modify the 
+   font sizes in the .Xresources file.
+--------------------------------------------------------------------------
+2. The initial values for the resolution factor, the number of scale
+   levels and other parameters are set in the file nplot.cpp in the
+   subroutine Nplot::init. Depending on how fast your machine is and
+   how many colors are available on your X-Display, you might like to 
+   modify the values in this subroutine. For example, change the lines
+   'cv.resfact=...'  and/or  'cv.scalelevels=..'  according to your
+   needs. Note that a higher resfact will give you better looking
+   graphics, but will also reduce the refresh rate. A higher scalelevels
+   will give you more colors but not enough colors might be available
+   on your 8-bit X-Display which will screw up your scale.
+   (read note 3 on how to change your 8 bit display to 16 bits).
+   NOTE: the scalelevels, the resolution factor and most things initialized
+         in Nplot::init can be changed on the fly while running
+         nodplot; so you don't need to change the nplot.cpp file
+         unless you run this code extensively and need different
+         defaults.. 
+--------------------------------------------------------------------------
+3. For better performance, it is recommended that you set your 
+   X-Window display to 16bits, and not 8 bits. This can be done
+   quite easily by adding the line "DefaultColorDepth 16" in
+   the "Screen Section" of your /etc/XF86Config file. If you have
+   only a 1 meg video card, add the '800x512' mode (listed below) 
+   to have more than a 640x480 resolution. Theoretically, it might seem 
+   that a resolution of 800x600 with 16bits per pixel could be handled by a 
+   1meg video card, but in practice it just ain't so. The problem comes 
+   from the accelerated X-Server which uses a multiple of 1024 pixels 
+   horizontally (even if you require only 800), hence blowing up the card's 
+   memory when 600 pixels are used vertically. 
+
+   Modeline "800x512"     36.00  800  824  896 1024   512  513  515  592
+
+   Then, your "Screen Section" should look something like this:
+
+    Section "Screen"
+      Driver      "svga"
+      Device      "Trident TGUI9680 (generic)"
+      Monitor     "My Monitor"
+      DefaultColorDepth 16
+      Subsection "Display"
+        Depth       16
+        Modes       "800x512" "640x480"
+        ViewPort    0 0
+        Virtual     800 512
+      EndSubsection
+
+ 

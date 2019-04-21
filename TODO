@@ -1,0 +1,95 @@
+PRIMORDIAL:
+---------------------------------------------------------------------------
+DONE  - Change input file format for various properties (include in menu)
+DONE  - Make nplot respond to the call nplot input.txt with input.txt
+          the input file
+DONE  - Include two modes of node visualization (include in menu)
+
+
+IMPORTANT:
+---------------------------------------------------------------------------
+DONE  - In canvas.cpp, fix the visual decal bug occuring between
+          the displayed depth and the color
+DONE  - In canvas.cpp, drawz()-> make the z scale look smoother
+DONE  - Fix the bug in main.cpp where #include "fonts.h" fails
+DONE  - Set a minimum size for the nplot window
+DONE  - Move the color/gray buttons to the scale menu
+DONE  - Could move the + and - scale buttons to the menu Scale ->
+          would make the scale look better
+DONE	- In drawz subroutine, when "out of range" then fill it with a 
+	    gray color..
+DONE  - Change the fixed value for the menu bar width to something
+          related to the font width.. Test this.
+DONE  - When switching from i,j,k upaxis, there's a slight decal
+          bug occuring when the number of nodes in k is small.
+DONE  - Little bug when clicking on the z-depth range: slight decal
+          between mouse cursor and printed value
+DONE  - In the menu item File, include the line new_window and close_window, 
+          which would give a new nplot with the same data structure
+          (this seems a bit tricky though ;-))
+DONE  - Give a much better Help in the help menu about the 1) button group,
+          2) the menu, 3) navigation on canvas
+DONE  - Give a help option activated by "nplot -help" in main.cpp related
+          to the format of the input file in fortran, C, or pascal
+DONE  - Include the menu item View->"Center xy-Canvas" and View->"Reset Zoom"
+DONE  - Download the qt-1.40 library and see if everything compiles OK
+DONE  - Create an INSTALL file giving info on the installation of NodPlot
+DONE  - Create a README file drescribing nodplot 
+DONE  - Call drawz() only when the required depth is different from the
+          actual depth
+DONE  - The drawz subroutine shows no update when mouse cursor is between
+          nodes in xy canvas
+DONE  - Write down the bash install script (file Install)
+DONE  - bug in main.c where te input files templates for C-Pascal-Fortran
+        do not work
+DONE  - there's a bug in the view->proportional switch: it doesn't find
+        properly the axis along which there are the most nodes: the bug
+        was actually the fact that it assumed numpixelsref to be related
+        to the wrong axis (x instead of y or vice-versa)..            
+DONE  - the proportional spacing has been redefined to occupy the most
+        space of the actual x-y plotting area
+DONE  - the additional option -geometry is now supported
+DONE  - make graphics go faster with line method in j-direction
+DONE  - program a nicer algorithm to take care of the command-line options
+DONE  - compile a static lib for qt and create a static executable
+
+
+AESTHETICS:
+---------------------------------------------------------------------------
+DONE  - Make the button group positioned down-right instead of
+          middle-right
+DONE  - Get rid of "out of range 1" and "out of range 2" in message box
+DONE  - Make the message in message box more visually appealing
+DONE  - Change the background color of the canvas to something similar
+          to the background color of the drawz view
+DONE  - Include a third mode of scale type (maybe steel blue?)
+DONE	- In drawz subroutine, add a cute arrow pointing left where the 
+	    depth is indicated	
+DONE  - Increase the size of the fw and bw buttons 
+DONE  - Add some control sequences to some menu items (like increase scale
+          or decrease scale) 
+DONE	- Change the shape of the scale in canvas
+DONE  - Make the title of the nplot windows related to the property shown,
+          whether the window is "mainwidget" or not..
+DONE  - Include the name of the input file in the window title
+DONE  - Change the shape of the crossed hairs in middle of canvas
+DONE  - In the getdata class, the message is a push button, make this
+          a "message button"
+DONE  - When viewing the z-depth, make it appear *only* when inside
+          canvas
+DONE  - Put some radio buttons in menu View and Scale -> for some strange
+          reason, this results in a core dumped when exiting nplot.
+          note: with qt1.40, no crash.
+
+CODE AESTHETICS
+---------------------------------------------------------------------------
+DONE  - move subroutine input_data from main.cpp to transfo.cpp
+      - in transfo.cpp subroutine find_pixel_from_node: shouldn't depend
+          on fictres and pixelsx pixelsy
+      - change nplot and Nplot by nodplot and NodPlot
+
+
+NEXT VERSION
+---------------------------------------------------------------------------
+      - Include the line "new linked window" in the file menu  
+

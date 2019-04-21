@@ -1,0 +1,43 @@
+#!/bin/sh
+PREFIX="/usr/local"
+VERSION="0.94"
+echo
+echo "-----======================-----"
+echo "      NodPlot Installation      "
+echo "-----======================-----"
+echo
+      echo
+      echo "Be sure that the following directories are present on"
+      echo "your system and that you have write permission to them:"
+      echo "1. "$PREFIX"/bin"
+      echo "2. "$PREFIX"/doc"
+      echo "3. "$PREFIX"/src"
+      echo
+      echo "Type <Return> to continue or <Control>-<C> to stop"
+      read foo
+      echo
+
+echo "cp nodplot" $PREFIX"/bin"
+cp nodplot $PREFIX/bin
+
+echo "chmod a+x" $PREFIX"/bin/nodplot"
+chmod a+x $PREFIX/bin/nodplot
+
+echo "mkdir" $PREFIX"/src/nodplot-v"$VERSION
+mkdir $PREFIX/src/nodplot-v$VERSION
+
+echo "cp *" $PREFIX"/src/nodplot-v"$VERSION
+cp * $PREFIX/src/nodplot-v$VERSION
+
+echo "mkdir" $PREFIX"/doc/nodplot-v"$VERSION
+mkdir $PREFIX/doc/nodplot-v$VERSION
+
+echo "cp doc/dataeg.npl" $PREFIX"/doc/nodplot-v"$VERSION
+cp doc/dataeg.npl $PREFIX/doc/nodplot-v$VERSION
+
+
+
+echo
+echo "Installation Complete.."
+echo "Type  nodplot -i " $PREFIX"/doc/nodplot-v"$VERSION"/dataeg.npl  for a testrun"
+echo

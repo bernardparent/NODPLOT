@@ -1,0 +1,36 @@
+
+1. Edit Makefile
+   *  change INCDIR, LFLAGS and MOC variables defined at
+      the beginning of the Makefile so that the latter include the
+      proper paths to the qt and X11 libraries
+      
+      
+2. Edit Fonts
+   *  in fonts2.h, change the fonts to your liking 
+      (Helvetica, Times, etc)
+   *  Bitstream vera sans (antialiased) is the default
+      
+      
+3. Compile NodPlot
+   *  make clean
+   *  make     
+   *  su root (enter password)
+   *  ./Install (to install nodplot in /usr/local/bin and 
+                 /usr/local/src and /usr/local/doc; note: if you wish
+                 to install to a different path, just edit the PREFIX
+                 variable defined at the top of the bash script "Install") 
+
+
+4. Test NodPlot 
+   *  nodplot -i dataeg.npl
+
+
+5. Create a 3D data file for NodPlot
+   *  nodplot -help   to get code templates in C, Pascal and Fortran 77
+                      showing how to create a nodplot data file
+
+
+6. Specify default geometry
+   * edit ~/.cshrc and add the following line for a default window size of 600 by 500
+     alias nodplot 'nodplot -geometry 600x500'
+   * if you use the bash shell, then edit instead ~/.bashrc 
